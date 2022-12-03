@@ -13,7 +13,8 @@ class Token(db.Model):
   type = db.Column(db.String(255))
   date = db.Column(db.DateTime)
 
-db.create_all()
+with app.app_context():
+    db.create_all()
 
 @app.route("/")
 def hello():
