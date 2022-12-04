@@ -48,6 +48,13 @@ def register():
     if not name or not ip or not port:
         return "Invalid data", 400
 
+    server = Server.query.filter_by(ip=ip, port=port).first()
+    if server:
+        server.name = name
+        server.date = datetime.now()
+        db.session.commit()
+        return "Server updated", 200
+
     server = Server(
         name=name,
         ip=ip,
