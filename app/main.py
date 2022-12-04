@@ -70,7 +70,7 @@ def register():
 
 @app.route("/servers", methods=['GET'])
 def get_servers():
-    seconds_until_offline = 5 * 60
+    seconds_until_offline = 20
     time_prev = datetime.now() - timedelta(seconds=seconds_until_offline)
 
     servers = db.session.query(Server).filter(Server.date > time_prev).all()
