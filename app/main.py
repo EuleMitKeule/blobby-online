@@ -48,9 +48,6 @@ def register():
     if not name or not ip or not port:
         return "Invalid data", 400
 
-    if Server.query.filter_by(ip=ip, port=port).first():
-        return "Server already registered", 400
-
     server = Server(
         name=name,
         ip=ip,
