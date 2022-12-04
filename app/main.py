@@ -8,7 +8,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///online.db'
 
 db = SQLAlchemy(app)
 
-config_yaml = yaml.load(open('config.yml'), Loader=yaml.FullLoader)
+config_yaml = yaml.load(open('config/config.yml'), Loader=yaml.FullLoader)
 server_token = config_yaml['server_token']
 
 class Token(db.Model):
